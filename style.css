@@ -1,8 +1,8 @@
 header {
     display: flex;
-    height: 80px;
+
     background-color: #207789;
-    padding: 53px 157px;
+    padding: 20px 157px;
 }
 
 header nav {
@@ -17,15 +17,29 @@ header nav {
 
 .logo {
     width: 84px;
-    height: 80px;
+    height: 75px;
     text-align: center;
 }
 
-li {
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header .header-nav li, footer .footer-nav li {
     font-family: sans-serif;
     margin-left: 130px;
     color: white;
-    font-size: 30px;
+    font-size: 12px;
+}
+
+footer .footer-nav li {
+    margin-left: 61px;
+    font-size: 25px;
 }
 
 .content {
@@ -33,6 +47,23 @@ li {
     display: flex;
     gap: 200px;
     flex-direction: column;
+}
+
+.overlay {
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.overlay.show {
+    opacity: 0.3;
 }
 
 section {
@@ -74,7 +105,7 @@ section h2 {
 }
 
 section h3 {
-    color: #5BA3B1;
+    color: #5ba3b1;
     font-size: 40px;
     text-align: center;
 }
@@ -120,17 +151,10 @@ footer {
     flex-direction: column;
 }
 
-.contact .links {
-    margin-top: auto;
-}
-
 .links {
+    margin-top: auto;
     width: 100%;
     display: flex;
-}
-
-a {
-    font-size: 35px;
 }
 
 .lastlink {
@@ -157,6 +181,10 @@ a {
 
 .fade-out.hidden {
     opacity: 0;
+}
+
+.dropdown-menu {
+    display: none;
 }
 
 /* MOBILE */
@@ -208,7 +236,7 @@ a {
 
     section.about .titles {
         position: relative;
-        gap: 0
+        gap: 0;
     }
 
     section h1 {
@@ -241,7 +269,6 @@ a {
         padding: 0 21px;
         gap: 13px;
     }
-    
 
     section p {
         font-size: 20px;
@@ -272,5 +299,45 @@ a {
 
     .footer-nav {
         display: none;
+    }
+
+    .dropdown-menu {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .dropdown-menu.show {
+        transform: translateY(0);
+    }
+
+    .dropdown-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .dropdown-menu ul li {
+        height: 60px;
+        background-color: #F2B705;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dropdown-menu ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .dropdown-menu ul li a:hover {
+        text-decoration: underline;
     }
 }
